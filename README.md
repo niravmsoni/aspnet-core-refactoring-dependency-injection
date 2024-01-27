@@ -41,3 +41,18 @@
 		- Require options model - Refer References of CsvProductTargetOptions
 		- NuGet package - Microsoft.Extensions.Options and Microsoft.Extensions.Configuration.Binder
 		- Setup done in ProductImporter.Logic.DIRegistrations class
+
+	- Implementing Multiple Implementing types
+		- In this use-case, there are 3 different implementing types which are executing the same task i.e. Transformation
+			- ICurrencyNormalizer
+			- INameDecapitaliser
+			- IReferenceAdder
+
+		- We could have them implement a single interface
+		- Above interfaces were removed and replaced with IProductTransformation interface
+		- Demonstrates polymorphism. Refer ProductImporter.Logic.Transformation.ProductTransformer class
+		- While requesting IProductTransformation from DI, please note that we have requested IEnumerable<IProductTransformation>
+			- This gives us all types implementing IProductTransformation
+		- If we simply request IProductTransformation from DI,
+			- This gives us the last registration done with this type i.e. ReferenceAdder. If we do not want this to happen, instead of Add, use TryAdd.
+			- This will ensure we get first registration done with this type

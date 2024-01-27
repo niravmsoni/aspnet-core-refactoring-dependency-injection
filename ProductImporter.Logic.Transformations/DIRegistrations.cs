@@ -13,20 +13,20 @@ namespace ProductImporter.Logic.Transformations
             optionsModifier(options);
 
             services.AddScoped<IProductTransformationContext, ProductTransformationContext>();
-            services.AddScoped<INameDecapitaliser, NameDecapitaliser>();
+            services.AddScoped<IProductTransformation, NameDecapitaliser>();
 
             //Make decisions based on the option supplied
             if (options.EnableCurrencyNormalizer)
             {
-                services.AddScoped<ICurrencyNormalizer, CurrencyNormalizer>();
+                services.AddScoped<IProductTransformation, CurrencyNormalizer>();
             }
             else
             {
-                services.AddScoped<ICurrencyNormalizer, NullCurrencyNormalizer>();
+                services.AddScoped<IProductTransformation, NullCurrencyNormalizer>();
             }
 
             services.AddScoped<IDateTimeProvider, DateTimeProvider>();
-            services.AddScoped<IReferenceAdder, ReferenceAdder>();
+            services.AddScoped<IProductTransformation, ReferenceAdder>();
             services.AddScoped<IReferenceGenerator, ReferenceGenerator>();
             services.AddSingleton<IIncrementingCounter, IncrementingCounter>();
 

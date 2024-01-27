@@ -4,7 +4,7 @@ using ProductImporter.Transformations;
 
 namespace ProductImporter.Logic.Transformations;
 
-public class ReferenceAdder : IReferenceAdder
+public class ReferenceAdder : IProductTransformation
 {
     private readonly IProductTransformationContext _productTransformationContext;
     private readonly IReferenceGenerator _refenceGenerator;

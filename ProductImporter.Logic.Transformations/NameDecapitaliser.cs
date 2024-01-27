@@ -3,7 +3,7 @@ using ProductImporter.Transformations;
 
 namespace ProductImporter.Logic.Transformations;
 
-public class NameDecapitaliser : INameDecapitaliser
+public class NameDecapitaliser : IProductTransformation
 {
     private readonly IProductTransformationContext _productTransformationContext;
 

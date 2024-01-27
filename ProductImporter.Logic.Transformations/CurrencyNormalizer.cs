@@ -3,7 +3,7 @@ using ProductImporter.Transformations;
 
 namespace ProductImporter.Logic.Transformations;
 
-public class CurrencyNormalizer : ICurrencyNormalizer
+public class CurrencyNormalizer : IProductTransformation//ICurrencyNormalizer
 {
     private readonly IProductTransformationContext _productTransformationContext;
 

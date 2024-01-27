@@ -24,16 +24,25 @@ public class ProductTransformer : IProductTransformer
         var transformationContext = scope.ServiceProvider.GetRequiredService<IProductTransformationContext>();
         transformationContext.SetProduct(product);
 
-        var nameCapitalizer = scope.ServiceProvider.GetRequiredService<INameDecapitaliser>();
-        var currencyNormalizer = scope.ServiceProvider.GetRequiredService<ICurrencyNormalizer>();
-        var referenceAdder = scope.ServiceProvider.GetRequiredService<IReferenceAdder>();
+        //Remove this
+        //var nameCapitalizer = scope.ServiceProvider.GetRequiredService<INameDecapitaliser>();
+        //var currencyNormalizer = scope.ServiceProvider.GetRequiredService<ICurrencyNormalizer>();
+        //var referenceAdder = scope.ServiceProvider.GetRequiredService<IReferenceAdder>();
 
+        //Newly added interface
+        var productTranformers = scope.ServiceProvider.GetRequiredService<IEnumerable<IProductTransformation>>();
 
         Thread.Sleep(2000);
 
-        nameCapitalizer.Execute();
-        currencyNormalizer.Execute();
-        referenceAdder.Execute();
+        //Demonstrates Polymorphism
+        foreach(var productTranformer in productTranformers)
+        {
+            productTranformer.Execute();
+        }
+
+        //nameCapitalizer.Execute();
+        //currencyNormalizer.Execute();
+        //referenceAdder.Execute();
 
         if (transformationContext.IsProductChanged())
         {
