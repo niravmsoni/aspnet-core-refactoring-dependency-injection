@@ -36,3 +36,8 @@
 			- Introduce a model class (ProductTransformationOptions.cs)
 			- Pass it as a Action delegate in the serviceCollection method and take decisions based on the value set in model
 			- From CompositionRoot project, set option properties and then we should see code behaving per the behavior defined on the model
+
+	- Application Configuration using Options Pattern
+		- Require options model - Refer References of CsvProductTargetOptions
+		- NuGet package - Microsoft.Extensions.Options and Microsoft.Extensions.Configuration.Binder
+		- Setup done in ProductImporter.Logic.DIRegistrations class

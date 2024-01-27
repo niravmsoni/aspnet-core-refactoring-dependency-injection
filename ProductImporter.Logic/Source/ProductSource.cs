@@ -1,27 +1,29 @@
 ﻿using Microsoft.VisualBasic.FileIO;
 using ProductImporter.Model;
 using ProductImporter.Logic.Shared;
+using Microsoft.Extensions.Options;
 
 namespace ProductImporter.Logic.Source;
 
 public class ProductSource : IProductSource
 {
-    private readonly Configuration _configuration;
+    //Requires Microsoft.Extensions.Options
+    private readonly IOptions<ProductSourceOptions> _productSourceOptions;
     private readonly IPriceParser _priceParser;
     private readonly IImportStatistics _importStatistics;
 
     private TextFieldParser? _textFieldParser;
 
-    public ProductSource(Configuration configuration, IPriceParser priceParser, IImportStatistics importStatistics)
+    public ProductSource(IOptions<ProductSourceOptions> productSourceOptions, IPriceParser priceParser, IImportStatistics importStatistics)
     {
-        _configuration = configuration;
+        _productSourceOptions = productSourceOptions;
         _priceParser = priceParser;
         _importStatistics = importStatistics;
     }
 
     public void Open()
     {
-        _textFieldParser = new TextFieldParser(_configuration.SourceCsvPath);
+        _textFieldParser = new TextFieldParser(_productSourceOptions.Value.SourceCsvPath);
         _textFieldParser.SetDelimiters(",");
     }
 
