@@ -12,12 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProductImporter.Logic.Transformations\ProductImporter.Logic.Transformations.csproj" />
-    <ProjectReference Include="..\ProductImporter.Logic\ProductImporter.Logic.csproj" />
-    <ProjectReference Include="..\ProductImporter.Model\ProductImporter.Model.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
