@@ -56,3 +56,18 @@
 		- If we simply request IProductTransformation from DI,
 			- This gives us the last registration done with this type i.e. ReferenceAdder. If we do not want this to happen, instead of Add, use TryAdd.
 			- This will ensure we get first registration done with this type
+
+	- Service Locator Pattern
+		- So far, We have used 2 ways to get dependencies
+			- Dependency Injection
+				- Class declares its dependencies (Mostly in constructors) and they get provided somehow. DI container is a way
+			- Service Locator
+				- Class references central service repository and requests services it needs from there
+					- For ex: scope.ServiceProvider.GetRequiredService<IEnumerable<IProductTransformation>>()
+				- This is misusing the DI container as Service Locator. This is easily an Anti-pattern
+
+		- Why we should not use Service Locator pattern?
+			- Testability
+				- Classes using Service Locator are harder to test/mock
+			- Hides Dependencies
+				- Dependencies are not visible (Either through constructor).They are implicit. Need to go through code to understand its dependencies
