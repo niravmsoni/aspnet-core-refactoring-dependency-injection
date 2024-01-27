@@ -27,3 +27,7 @@
 					- Infrastructure
 
 	- This will be especially beneficial if we have or foresee more than 1 entrypoints against an application
+
+	- To further better this code, we could break down dependencies into their respective project types by writing extension methods on IServiceCollection
+		- See ProductImporter.Logic project - DIRegistrations class
+		- Same implemented for other projects
