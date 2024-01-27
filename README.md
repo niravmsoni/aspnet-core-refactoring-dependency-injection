@@ -71,3 +71,6 @@
 				- Classes using Service Locator are harder to test/mock
 			- Hides Dependencies
 				- Dependencies are not visible (Either through constructor).They are implicit. Need to go through code to understand its dependencies
+
+		- Golden rule
+			- We should reference the container as less as possible
