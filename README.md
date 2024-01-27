@@ -1,13 +1,17 @@
 # Offloading Composition Root responsibilities to a separate class library
 	- Often times, we see the Program.cs overburdened with all the service registrations as well as the code to invoke/start the application.
-		- Problem
-			- With this structure we have 2 different things tied together i.e. EntryPoint and CompositionRoot
-			- This is a console application that imports products from csv and outputs them to csv or Database.
-			- If we want to run the importer from another application (For ex: WebAPI), we would require a lot of refactoring since we would reuse all the core logic
 
-		- Solution
-			- Offloading responsibilities of doing the service registrations in a separate class library project
-			- All the registrations are done either in WebAPI.Program class or are done in respective project by writing extension methods on IServiceCollection
+	- Application background
+		- This is a console application that imports products from csv and outputs them to csv or Database.
+
+	- Problem
+		- With this structure we have 2 different things tied together i.e. EntryPoint and CompositionRoot
+		- Right now, this application has a single entry point i.e. Console App
+		- In-case if tomorrow a requirement comes in to have a WebAPI as another entry point, this could cause issue and we would require a lot of refactoring since we would reuse all the core logic	
+
+	- Solution
+		- Offloading responsibilities of doing the service registrations in a separate class library project
+		- All the registrations are done either in WebAPI.Program class or are done in respective project by writing extension methods on IServiceCollection
 			- Before
 				- If we follow clean architecture practices, we typically have this structure
 					- WebAPI - Has reference of Domain, Application and Infrastructure projects
@@ -21,3 +25,5 @@
 					- Domain
 					- Application
 					- Infrastructure
+
+	- This will be especially beneficial if we have or foresee more than 1 entrypoints against an application
