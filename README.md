@@ -96,4 +96,7 @@
 					- However, returning nulls from method and expecting others to handle that is not generally recommended.
 
 			- Implement NullPattern (Best approach)
-				- 
+				- Refer commits
+					- https://github.com/niravmsoni/aspnet-core-refactoring-dependency-injection/commit/7364a231d49b5480f637f39489bef6ad8d47c687
+					- https://github.com/niravmsoni/aspnet-core-refactoring-dependency-injection/commit/52905fff211c2682c9c5d829f1ac7f24230bd654
+				- Indicates empty implementation for the said interface
