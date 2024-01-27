@@ -12,7 +12,8 @@ namespace ProductImporter.CompositionRoot
             services.AddProductImporterLogic();
 
             //Hooking up dependencies for transformations project
-            services.AddProductTransformations();
+            //Specifying currency normalizer to be true
+            services.AddProductTransformations(o => o.EnableCurrencyNormalizer = true);
             return services;
         }
     }

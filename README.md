@@ -30,4 +30,9 @@
 
 	- To further better this code, we could break down dependencies into their respective project types by writing extension methods on IServiceCollection
 		- See ProductImporter.Logic project - DIRegistrations class
-		- Same implemented for other projects
+		- Same implemented for ProductImporter.Logic.Transformations - DiRegistrations class
+
+		- How do we allow tweaking of behavior to this DI?
+			- Introduce a model class (ProductTransformationOptions.cs)
+			- Pass it as a Action delegate in the serviceCollection method and take decisions based on the value set in model
+			- From CompositionRoot project, set option properties and then we should see code behaving per the behavior defined on the model
