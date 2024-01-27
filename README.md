@@ -74,3 +74,15 @@
 
 		- Golden rule
 			- We should reference the container as less as possible
+
+	- Optional Registrations
+		- What to do when you do not have an implementation of an interface available
+		- We will target IProductTransformer here
+		- 3 ways to achieve this
+			- Service locator Pattern (Not recommended since its antipattern)
+				- Inject IServiceProvider as dependency
+				- Use GetService or GetRequiredService for retrieving value from Service provider
+				- Difference
+					- GetRequiredService() - Throws InvalidOperationException() when required service is not present in Service provider
+					- GetService() - Returns null
+				- We could do a null check and handle it here

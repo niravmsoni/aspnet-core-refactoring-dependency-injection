@@ -21,7 +21,8 @@ namespace ProductImporter.Logic
 
             services.AddSingleton<IImportStatistics, ImportStatistics>();
 
-            services.AddTransient<IProductTransformer, ProductTransformer>();
+            //Commenting this implementation to show how to deal with times when we do not have ProductTransformer ready/available
+            //services.AddTransient<IProductTransformer, ProductTransformer>();
 
             services.AddOptions<ProductSourceOptions>()
                 .Configure<IConfiguration>((options, configuration) =>
