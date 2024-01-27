@@ -86,6 +86,14 @@
 					- GetRequiredService() - Throws InvalidOperationException() when required service is not present in Service provider
 					- GetService() - Returns null
 				- We could do a null check and handle it here. Refer commit - https://github.com/niravmsoni/aspnet-core-refactoring-dependency-injection/commit/d1b53ecf5a23aaa6866ea9900ee1f4e865ea1d3a
+				- Cons
+					- Results in Service locator antipattern
 
 			- Registering IProductTransformer with null
-				- Refer commit - 
+				- Refer commit - https://github.com/niravmsoni/aspnet-core-refactoring-dependency-injection/commit/736bed7908a3ba7fefce5e66137ad4124da90536
+				- This indicates there is no implementation. 
+				- Cons
+					- However, returning nulls from method and expecting others to handle that is not generally recommended.
+
+			- Implement NullPattern (Best approach)
+				- 

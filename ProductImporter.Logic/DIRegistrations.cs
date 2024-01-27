@@ -21,9 +21,10 @@ namespace ProductImporter.Logic
 
             services.AddSingleton<IImportStatistics, ImportStatistics>();
 
+            //Most recommended - Implement interface without any behavior
             services.AddTransient<IProductTransformer>((serviceProvider) =>
             {
-                return null;
+                return new NullProductTransformer();
             });
 
             services.AddOptions<ProductSourceOptions>()
