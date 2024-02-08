@@ -2,7 +2,7 @@
 	- Often times, we see the Program.cs overburdened with all the service registrations as well as the code to invoke/start the application.
 
 	- Application background
-		- This is a console application that imports products from csv and outputs them to csv or Database.
+		- This is a console app that imports products from csv and outputs them to csv or Database.
 
 	- Problem
 		- With this structure we have 2 different things tied together i.e. EntryPoint and CompositionRoot
